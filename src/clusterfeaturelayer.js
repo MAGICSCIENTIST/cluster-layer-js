@@ -342,7 +342,11 @@ define([
 
         // When the popup appears, toggle the cluster to singles or the singles to a cluster
         _popupVisibilityChange: function () {
-            var show = this._map.infoWindow.isShowing;
+            if(this._map.infoWindow){
+                var show = this._map.infoWindow.isShowing;                    
+            }else{
+                var show = false;
+            }
             // Popup hidden, show cluster
             this._showClickedCluster(!show);
             // Remove singles from layer
